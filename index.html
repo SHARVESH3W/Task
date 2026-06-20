@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Employee Portal</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: #f2f2f2;
+            text-align: center;
+        }
+
+        .box {
+            width: 500px;
+            margin: 50px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px gray;
+        }
+
+        button {
+            padding: 10px 20px;
+            background: blue;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+
+        #output {
+            text-align: left;
+            margin-top: 20px;
+            white-space: pre-line;
+        }
+    </style>
+
+</head>
+
+<body>
+
+<div class="box">
+
+<h1>Employee Portal</h1>
+
+<button onclick="showEmployee()">Show Details</button>
+
+<div id="output"></div>
+
+</div>
+
+
+<script>
+
+function showEmployee()
+{
+
+// Employee Object
+
+const company = {
+    companyName : "Stackly IT",
+    location : "Bangalore",
+    technologies : ["HTML","CSS","JavaScript","React"]
+};
+
+
+let employee = {
+
+    name : "Sharveshwaran",
+    id : "STK-26-2961",
+    department : "Development",
+    experience : 1,
+    salary : 50000,
+    attendance : 92
+
+};
+
+
+// Skills Array
+
+let skills = [
+"HTML",
+"CSS",
+"JavaScript",
+"React",
+"Git",
+"Node.js"
+];
+
+
+// Salary Calculation
+
+let bonus = 5000;
+
+let finalSalary = employee.salary + bonus;
+
+
+// Attendance Check
+
+let examStatus = employee.attendance >= 75
+? "Eligible"
+: "Not Eligible";
+
+
+// Login Verification
+
+let username = "admin";
+let password = "12345";
+
+let loginStatus =
+(username=="admin" && password=="12345")
+? "Success"
+: "Failed";
+
+
+// Experience Check
+
+let experienceStatus =
+employee.experience >= 2
+? "Experienced"
+: "Fresher";
+
+
+// Output
+
+document.getElementById("output").innerHTML = `
+
+==============================
+
+        EMPLOYEE PORTAL
+
+==============================
+
+
+Employee Name : ${employee.name}
+
+Employee ID   : ${employee.id}
+
+Department    : ${employee.department}
+
+Experience    : ${employee.experience} Years
+
+
+Salary        : ₹${employee.salary}
+
+Bonus         : ₹${bonus}
+
+Final Salary  : ₹${finalSalary}
+
+
+Skills        : ${skills.join(", ")}
+
+
+Attendance    : ${employee.attendance}%
+
+
+Exam Status   : ${examStatus}
+
+
+Login Status  : ${loginStatus}
+
+
+Experience    : ${experienceStatus}
+
+
+Company       : ${company.companyName}
+
+
+Location      : ${company.location}
+
+
+Second Technology : ${company.technologies[1]}
+
+
+Total Technologies : ${company.technologies.length}
+
+`;
+
+
+// Alert & Confirm
+
+let name = prompt("Enter your name");
+
+let join = confirm("Do you want to join our company?");
+
+
+if(join)
+{
+    alert(`Welcome ${name}`);
+}
+else
+{
+    alert("Thank You");
+}
+
+
+}
+
+</script>
+
+
+</body>
+</html>

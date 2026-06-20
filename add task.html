@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Car Rental System</title>
+
+<style>
+
+body{
+    font-family: Arial;
+    background:#e8f0fe;
+}
+
+.container{
+    width:500px;
+    margin:50px auto;
+    background:white;
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0 0 15px gray;
+}
+
+h1{
+    text-align:center;
+    color:#1565c0;
+}
+
+label{
+    font-weight:bold;
+}
+
+input,select,button{
+    width:100%;
+    padding:10px;
+    margin:8px 0;
+}
+
+button{
+    background:#1565c0;
+    color:white;
+    border:none;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#0d47a1;
+}
+
+#result{
+    margin-top:20px;
+    background:#f5f5f5;
+    padding:15px;
+    border-radius:10px;
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+<h1>🚗 Car Rental System</h1>
+
+
+<label>Customer Name</label>
+<input type="text" id="name">
+
+
+<label>Select Car</label>
+
+<select id="car">
+
+<option value="1500">BMW - ₹1500/day</option>
+<option value="1200">Audi - ₹1200/day</option>
+<option value="1000">Toyota - ₹1000/day</option>
+<option value="800">Swift - ₹800/day</option>
+
+</select>
+
+
+<label>Number of Days</label>
+
+<input type="number" id="days">
+
+
+<button onclick="rentCar()">Rent Car</button>
+
+
+<div id="result"></div>
+
+
+</div>
+
+
+
+<script>
+
+
+function rentCar(){
+
+
+let customer = document.getElementById("name").value;
+
+let car = document.getElementById("car");
+
+let carName = car.options[car.selectedIndex].text;
+
+let price = car.value;
+
+
+let days = document.getElementById("days").value;
+
+
+let total = price * days;
+
+
+
+document.getElementById("result").innerHTML = `
+
+<h3>Rental Details</h3>
+
+Customer Name : ${customer}<br><br>
+
+Car : ${carName}<br><br>
+
+Days : ${days}<br><br>
+
+Total Amount : ₹${total}
+
+
+`;
+
+
+
+alert("Car Booked Successfully 🚗");
+
+
+}
+
+
+</script>
+
+
+</body>
+</html>
